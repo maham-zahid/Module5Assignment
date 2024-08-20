@@ -108,7 +108,141 @@ body {
     color: #333; 
 }
 
-/* Footer */
+/* Upper Footer styling */
+.upper-footer {
+    background: #ffffff;
+    color: #000000;
+    padding: 20px 0; 
+    text-align: left;
+}
+
+/* Footer Divider Styling */
+.footer-divider {
+    border: none;
+    border-top: 1px solid grey; 
+    margin-left: 250px;  
+    margin-right: 250px; 
+}
+
+/* Specific Spacing for Upper Footer Divider */
+.footer-divider.top {
+    margin-bottom: 50px; 
+}
+
+/* Specific Spacing for Lower Footer Divider */
+.footer-divider.bottom {
+    margin-top: 50px; 
+    margin-bottom: 10px; 
+}
+
+.footer-container {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 180px; 
+}
+
+.footer-column {
+    width: 45%;
+    text-align: left;
+    margin: 0 10px; 
+}
+
+
+.footer-column h2 {
+    margin-bottom: 15px;
+    color: grey; 
+    font-weight: normal; 
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: grey; 
+}
+
+.read-more-button {
+    display: inline-block; 
+    color: #e73e2b; 
+    text-decoration: none; 
+}
+
+.read-more-button:hover {
+    text-decoration: underline; 
+}
+
+.email {
+    color: #e73e2b;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 2px;
+    color: white; 
+}
+
+/* Social icon colors */
+.social-icon.facebook {
+    background-color: #4267B2; /
+}
+
+.social-icon.twitter {
+    background-color: #1DA1F2; 
+}
+
+.social-icon.pinterest {
+    background-color: #E4405F;
+}
+
+.social-icon.google-plus {
+    background-color: #DB4437; 
+}
+
+.social-icon.linkedin {
+    background-color: #0077B5; 
+}
+
+/* Hover effect for social icons */
+.social-icon:hover {
+    opacity: 0.8; 
+}
+
+
+/* Lower Footer Styling */
+.lower-footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+}
+
+.lower-footer p {
+    margin: 0;
+}
+
+.lower-footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222;
+}
+
+.lower-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
 .site-footer {
     background-color: #f8f8f8;
     padding: 20px 0;
