@@ -28,7 +28,7 @@
             <!-- Search Bar -->
             <div class="search-bar">
             <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
-                <input type="text" name="s" >
+                <input type="text" class="search-field" value="<?php echo get_search_query(); ?>" name="s" >
                 <button type="submit">
                     <i class="fas fa-search"></i> 
                 </button>
@@ -36,5 +36,17 @@
         </div>
     </div>
 </header>
+
+ <!-- Slider Image-->
+<section class="slider-image">
+    <div class="slider-image-container">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-image.png" alt="Slider Image">
+        <div class="slider-text">
+            <h1>Gearing up the ideas</h1>
+            <p>Transform your ideas into impactful solutions with our innovative approach. Discover new possibilities and make a difference with our expertise.</p>
+            
+        </div>
+    </div>
+</section>
 
     <?php wp_body_open(); ?>
