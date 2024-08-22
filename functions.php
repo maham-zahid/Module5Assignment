@@ -10,6 +10,10 @@ function headermenu_setup() {
 add_action('after_setup_theme', 'headermenu_setup');
 
 
+function customtheme_setup() {
+    add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'customtheme_setup');
 
     /**
  * Enqueue the theme's stylesheet

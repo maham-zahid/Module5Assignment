@@ -11,7 +11,7 @@
             <h2>Contact Us</h2>
             <p>Street 21 Planet, A-11, dapibus tristique. 123 551</p>
             <p>Tel: 123 456-7890; Fax: 123 456789</p>
-            <p>Email: <span class="email">contactus@edsignfly.com</span></p>
+            <p>Email: <span class="email">contactus@designfly.com</span></p>
             <div class="social-icons">
                 <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-icon google-plus"><i class="fab fa-google-plus-g"></i></a>

@@ -120,8 +120,8 @@ body {
 .footer-divider {
     border: none;
     border-top: 1px solid grey; 
-    margin-left: 250px;  
-    margin-right: 250px; 
+    margin-left: 260px;  
+    margin-right: 260px; 
 }
 
 /* Specific Spacing for Upper Footer Divider */
@@ -140,8 +140,7 @@ body {
     justify-content: flex-start; 
     align-items: flex-start; 
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 180px; 
+    margin: 0 250px;
 }
 
 .footer-column {
@@ -153,7 +152,7 @@ body {
 
 .footer-column h2 {
     margin-bottom: 15px;
-    color: grey; 
+    color: #000000; 
     font-weight: normal; 
 }
 
@@ -293,26 +292,29 @@ body {
     display: block; 
 }
 
+/* Text Overlay Styling */
 .slider-text {
     position: absolute;
-    bottom: 10px; 
+    bottom: 50px; 
     left: 50%;
     transform: translateX(-50%); 
     color: #fff;
     text-align: center;
-    padding: 70px; 
+    padding: 20px; 
 }
 
 .slider-text h1 {
-    font-size: 56px; 
+    font-size: 36px; 
     margin-bottom: 10px;
-    font-weight: normal; 
+    font-weight: bold; 
 }
 
 .slider-text p {
-    font-size: 14px; 
+    font-size: 18px;
     font-weight: normal; 
+    margin: 0; 
 }
+
 
 /* Styling for Services Highlight */
 .services-highlight {
@@ -360,3 +362,264 @@ body {
     font-weight: lighter;
 }
 
+/* General Styles for Portfolio Page */
+.portfolio-container {
+    max-width: 1200px;
+    margin: 50px 240px;
+    padding: 20px;
+}
+
+.title-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.title-section h2 {
+    font-size: 2rem; 
+    margin: 0;
+    color: #333;
+    font-weight: normal; 
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 0.875rem; 
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #000; 
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons .btn.active {
+    background-color: #e74c3c; 
+}
+
+.nav-buttons .btn:hover {
+    background-color: #555; 
+}
+
+.divider-line {
+    border: 0;
+    border-top: 1px solid #000; 
+    margin: 20px 0;
+}
+
+.portfolio-items-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.portfolio-card {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.portfolio-card a {
+    display: block;
+}
+
+.portfolio-card img {
+    width: 300px;
+    height: 200px;
+    display: block;
+    border-radius: 8px;
+}
+
+.no-posts-message {
+    text-align: center;
+    font-size: 1.25rem; 
+    color: #333;
+    margin-top: 20px;
+}
+
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-numbers {
+    display: inline-block;
+    margin: 0 3px; /* Equal spacing between page numbers */
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 2px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+}
+
+.page-numbers:hover {
+    background-color: #ddd;
+}
+
+.page-numbers.current {
+    background-color: #e73e2b;
+    color: #fff;
+}
+
+.page-numbers i.fas {
+    margin-left: 20px; 
+    color: #333;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.page-numbers i.fas:hover {
+    color: #e73e2b;
+}
+
+.pagination-wrapper .page-numbers {
+    margin: 0 10px; 
+}
+
+.pagination-wrapper {
+    display: inline-block;
+    width: auto; 
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page-numbers.last {
+    margin-left: 20px; 
+}
+
+
+
+/* Blog Section Spacing */
+.blog-section {
+    margin-top: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+/* Heading Styling */
+.heading-row h2{
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 35px;
+}
+
+.blog-post{
+    margin-bottom: 30px;
+}
+
+/* Blog Post Row */
+.blog-post-row {
+    display: flex;
+    align-items: center;
+    background-color: #333; 
+    padding: 8px;
+    border-radius: 5px;
+    color: #fff; 
+    margin-bottom: 30px;
+}
+
+/* Date Styling */
+.blog-date {
+    font-size: 18px; 
+    padding-left: 5px;
+}
+
+/* Vertical Line Styling */
+.blog-vertical-line {
+    width: 1px; 
+    background-color: #fff; 
+    height: 30px; 
+    margin: 0 20px; 
+}
+
+
+/* Heading Styling */
+.blog-heading {
+    font-size: 20px;
+}
+
+.blog-heading a {
+    color: #fff; 
+    text-decoration: none;
+}
+
+/* Heading and Divider Spacing */
+.section-divider {
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+}
+
+/* Content Spacing */
+.blog-content {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+    color: grey;
+    font-weight: normal;
+}
+
+
+/* Blog Meta */
+.blog-meta {
+    flex: 1;
+}
+
+.post-thumbnail img {
+    width: 200px; 
+    height: 150px; 
+    margin-right: 20px;
+}
+
+.blog-meta p {
+    margin: 10px;
+}
+
+.author-name {
+    color: #e73e2b; 
+}
+
+/* Comment Count Styling */
+.comment-count {
+    color: #e73e2b; 
+    margin-left: 430px; 
+    display: inline-block;
+}
+
+/* Blog Divider */
+.blog-divider {
+    margin: 10px 0; 
+    border: none;
+    border-top: 1px solid black; 
+}
+
+/* Blog Excerpt */
+.blog-excerpt {
+    margin: 10px 0; 
+}
+
+/* Read More Link */
+.read-more {
+    color: #e73e2b; 
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
