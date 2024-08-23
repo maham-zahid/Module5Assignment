@@ -15,6 +15,12 @@ function customtheme_setup() {
 }
 add_action('after_setup_theme', 'customtheme_setup');
 
+/**
+ * Include the portfolio shortcode file
+ */
+require get_template_directory() . '/template-parts/portfolio-showcase.php';
+
+
     /**
  * Enqueue the theme's stylesheet
  */

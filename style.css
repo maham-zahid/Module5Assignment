@@ -502,6 +502,24 @@ body {
     margin-left: 20px; 
 }
 
+/* General button styles */
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #000; /* Black background */
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #555; /* Darker shade for hover effect */
+}
+
+
 
 
 /* Blog Section Spacing */
@@ -600,19 +618,19 @@ body {
     display: inline-block;
 }
 
-/* Blog Divider */
+
 .blog-divider {
     margin: 10px 0; 
     border: none;
     border-top: 1px solid black; 
 }
 
-/* Blog Excerpt */
+
 .blog-excerpt {
     margin: 10px 0; 
 }
 
-/* Read More Link */
+
 .read-more {
     color: #e73e2b; 
     text-decoration: none;

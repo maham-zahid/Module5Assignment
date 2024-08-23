@@ -4,7 +4,7 @@
  */
 get_template_part('template-parts/header');
  ?>
- 
+
 <div class="page-container">
     <?php
     // Start the loop.
@@ -27,6 +27,10 @@ get_template_part('template-parts/header');
 
 <?php
 get_template_part('template-parts/services-highlight');
+?>
+
+<?php 
+echo do_shortcode('[portfolio_showcase]'); 
 ?>
 
 <?php get_template_part('template-parts/footer');?>
