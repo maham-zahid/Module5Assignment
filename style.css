@@ -694,13 +694,13 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     font-weight: normal; 
-
+}
 /* Tags Section */
 .post-tags {
     margin-top: 50px; 
     display: flex;
     align-items: center; 
-
+}
 .tags-heading {
     font-size: 1.25rem; 
     font-weight: normal; 
@@ -883,6 +883,7 @@ hr.divider-line {
 .form-submit{
     margin-bottom: 30px;
 }
+
 .form-submit .submit{
     background-color: black;
     color: white;
