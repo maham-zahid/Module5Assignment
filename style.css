@@ -510,16 +510,14 @@ body {
     text-decoration: none;
     color: #fff;
     border-radius: 5px;
-    background-color: #000; /* Black background */
+    background-color: #000; 
     transition: background-color 0.3s ease;
 }
 
-/* Button hover effect */
+
 .btn:hover {
-    background-color: #555; /* Darker shade for hover effect */
+    background-color: #555; 
 }
-
-
 
 
 /* Blog Section Spacing */
@@ -640,4 +638,261 @@ body {
 
 .read-more:hover {
     text-decoration: underline;
+}
+
+
+.single-post-container {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+/* Single post styles */
+.single-post {
+    margin: 0 20px; 
+}
+
+
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #333;
+}
+
+
+.post-meta {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+/* Author Name */
+.post-meta .author {
+    color: #e73e2b; 
+    margin-left: 7px; 
+    margin-right: 7px; 
+}
+
+/* Date */
+.post-meta .date {
+    margin-left: 7px; 
+}
+
+/* Comments Count */
+.post-meta .comments {
+    color: #e73e2b;
+    margin-left: auto; 
+    margin-left: 400px; 
+}
+
+/* Post Content */
+.post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: normal; 
+
+/* Tags Section */
+.post-tags {
+    margin-top: 50px; 
+    display: flex;
+    align-items: center; 
+
+.tags-heading {
+    font-size: 1.25rem; 
+    font-weight: normal; 
+    margin-bottom: 0; 
+    margin-right: 10px; 
+}
+
+.tag a {
+    color: #e73e2b; 
+    margin-right: 5px; 
+    text-decoration: none;
+    margin-top: 0; 
+}
+
+
+.comments-divider {
+    margin-top: 5px;
+    margin-bottom: 5px; 
+}
+
+
+.comments-heading {
+    font-size: 24px;
+    font-weight: normal;
+    text-align: left;
+    color: grey; 
+    margin-bottom: 5px; 
+}
+
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px; 
+}
+
+/* Comment Meta */
+.comment-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 0.9em; 
+}
+
+/* Comment Meta Items */
+.comment-meta span {
+    margin-right: 10px; 
+}
+
+
+.comment-meta span:last-child {
+    margin-right: 0;
+}
+
+
+.comment-icon {
+    margin-right: 10px;
+    color: grey; 
+}
+
+
+.comment-author {
+    font-weight: bold;
+    color: red; 
+}
+
+
+.comment-said-on {
+    margin-right: 5px; 
+    color: grey; 
+}
+
+
+.comment-date {
+    margin-right: 5px; 
+    color: grey; 
+}
+
+
+.comment-time {
+    color: grey; 
+}
+
+.comment-content {
+    margin-bottom: 15px;
+    font-weight: normal;
+    color: grey; 
+}
+
+
+.comment-reply {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+
+.comment-reply a {
+    color: grey; 
+    text-decoration: none;
+    font-size: 0.9em; 
+}
+
+.comment-reply a:hover {
+    text-decoration: underline;
+}
+
+
+hr.divider-line {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 10px 0; 
+    
+}
+
+
+.post-tags {
+    margin-bottom: 30px;
+}
+
+
+.comment-list li {
+    margin-bottom: 30px;
+}
+
+
+.comments-form-divider {
+    border: none;
+    border-top: 1px solid #333; 
+    margin: 20px 0; 
+}
+
+
+.comment-form-heading {
+    font-size: 18px;
+    color: grey; 
+    margin-bottom: 15px; 
+    font-weight: normal; 
+}
+
+
+.comment-form-field {
+    margin-bottom: 20px; 
+}
+
+.comment-form-field textarea {
+    width: 100%; 
+    padding: 10px; 
+}
+
+
+.comment-form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-meta-fields-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.comment-meta-field {
+    flex: 1;
+}
+
+.comment-meta-field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.comment-meta-field input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+
+.form-submit{
+    margin-bottom: 30px;
+}
+.form-submit .submit{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    float: right; 
+}
+
+.comment-submit-button:hover {
+    background-color: #333;
 }

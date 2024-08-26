@@ -20,8 +20,52 @@ add_action('after_setup_theme', 'customtheme_setup');
  */
 require get_template_directory() . '/template-parts/portfolio-showcase.php';
 
+/**
+ * Callback function for comments
+ */
 
-    /**
+function custom_comment_format($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    ?>
+    <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+        <div class="comment-meta">
+            
+            <span class="comment-icon">
+                <i class="fas fa-comment"></i> 
+            </span>
+            
+            <span class="comment-author" style="color: red;">
+                <?php comment_author(); ?>
+            </span> 
+            <span class="comment-said-on" style="color: grey;">
+                said on
+            </span>
+            <span class="comment-date" style="color: grey;">
+                <?php comment_date(); ?>
+            </span>
+            <span class="comment-time" style="color: grey;">
+                at <?php comment_time(); ?>
+            </span>
+        </div>
+        
+        
+        <div class="comment-content" style="color: grey; text-align: left;">
+            <?php comment_text(); ?>
+        </div>
+
+   
+        <div class="comment-reply" style="text-align: right;">
+            <?php comment_reply_link( array_merge( $args, array(
+                'reply_text' => '<i class="fas fa-reply"></i> reply',
+                'depth'      => $depth,
+                'max_depth'  => $args['max_depth']
+            ) ) ); ?>
+        </div>
+    </li>
+    <?php
+}
+
+/*
  * Enqueue the theme's stylesheet
  */
 function wp_blog_theme_enqueue_styles() {
