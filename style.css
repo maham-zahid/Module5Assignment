@@ -434,6 +434,9 @@ body {
     display: block;
     border-radius: 8px;
 }
+.portfolio-container {
+     margin-bottom: 2px;
+}
 
 .no-posts-message {
     text-align: center;
@@ -445,11 +448,16 @@ body {
 .pagination-wrapper {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.pagination {
+    text-align: center;
 }
 
 .page-numbers {
     display: inline-block;
-    margin: 0 3px; /* Equal spacing between page numbers */
+    margin: 0 3px; 
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -480,23 +488,6 @@ body {
     color: #e73e2b;
 }
 
-.pagination-wrapper .page-numbers {
-    margin: 0 10px; 
-}
-
-.pagination-wrapper {
-    display: inline-block;
-    width: auto; 
-}
-
-.pagination {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
 .page-numbers.last {
     margin-left: 20px; 
@@ -529,8 +520,10 @@ body {
 
 /* Heading Styling */
 .heading-row h2{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-align: left;
     font-weight: normal;
+    align-items: left;
     font-size: 35px;
 }
 
@@ -546,7 +539,7 @@ body {
     padding: 8px;
     border-radius: 5px;
     color: #fff; 
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 /* Date Styling */
@@ -574,17 +567,12 @@ body {
     text-decoration: none;
 }
 
-/* Heading and Divider Spacing */
-.section-divider {
-    margin-top: 10px; 
-    margin-bottom: 20px; 
-}
 
 /* Content Spacing */
 .blog-content {
     display: flex;
     align-items: flex-start;
-    margin-top: 20px;
+    margin-top: 2px;
     color: grey;
     font-weight: normal;
 }
@@ -592,8 +580,25 @@ body {
 
 /* Blog Meta */
 .blog-meta {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
+
+.post-meta, .post-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.post-meta p, .post-info p {
+    margin: 0;
+}
+
+.post-info {
+    margin-top: 1px;
+}
+
 
 .post-thumbnail img {
     width: 200px; 
@@ -601,8 +606,12 @@ body {
     margin-right: 20px;
 }
 
+.meta-wrapper{
+    margin-top: -15px;
+}
 .blog-meta p {
-    margin: 10px;
+    margin: 0;
+   
 }
 
 .author-name {
@@ -611,21 +620,20 @@ body {
 
 /* Comment Count Styling */
 .comment-count {
-    color: #e73e2b; 
-    margin-left: 430px; 
+    color: #e73e2b;  
     display: inline-block;
 }
 
 
 .blog-divider {
-    margin: 10px 0; 
+    margin: 1px 0; 
     border: none;
     border-top: 1px solid black; 
 }
 
 
 .blog-excerpt {
-    margin: 10px 0; 
+    margin: 5px 0; 
 }
 
 
@@ -646,6 +654,7 @@ body {
     margin: 0 auto; 
     padding: 20px;
 }
+
 
 /* Single post styles */
 .single-post {
@@ -896,4 +905,58 @@ hr.divider-line {
 
 .comment-submit-button:hover {
     background-color: #333;
+}
+
+/*  Archive section styling*/
+
+.archive-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.archive-post {
+    margin-bottom: 30px;
+}
+
+.archive-post h3 {
+    font-size: 24px;
+}
+
+.archive-post p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.read-more {
+    color: #e73e2b;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.section-divider { 
+    margin: 20px 20px;
+    border: none;
+    border-top: 1px solid #333;
+}
+
+
+.widget-area {
+    width: 25%;
+    float: right;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.widget {
+    margin-bottom: 20px;
+}
+
+.widget-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }

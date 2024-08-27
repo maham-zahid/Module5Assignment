@@ -65,6 +65,19 @@ function custom_comment_format($comment, $args, $depth) {
     <?php
 }
 
+function my_theme_widgets_init() {
+    register_sidebar( array(
+        'name'          => 'Primary Sidebar',
+        'id'            => 'primary-sidebar',
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'my_theme_widgets_init' );
+
+
 /*
  * Enqueue the theme's stylesheet
  */

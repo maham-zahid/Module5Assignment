@@ -57,8 +57,8 @@ get_template_part('template-parts/services-highlight');
         'total' => $portfolio_query->max_num_pages,
         'current' => get_query_var('paged') ? get_query_var('paged') : 1,
         'format' => '?paged=%#%', // Pagination format
-        'prev_text' => '', // Remove previous arrow
-        'next_text' => '<i class="fas fa-chevron-right"></i>', // Font Awesome icon for next arrow
+        'prev_text' => '<i class="fas fa-chevron-left"></i>', 
+        'next_text' => '<i class="fas fa-chevron-right"></i>', 
     ));
     ?>
     </div>
