@@ -78,6 +78,7 @@ function my_theme_widgets_init() {
 add_action( 'widgets_init', 'my_theme_widgets_init' );
 
 
+
 /*
  * Enqueue the theme's stylesheet
  */

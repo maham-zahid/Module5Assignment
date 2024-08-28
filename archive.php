@@ -1,54 +1,50 @@
 <?php
-get_header(); // Include the header.php template
+get_template_part('template-parts/header');
 ?>
 
-<div class="archive-section">
-    <div class="heading-row">
-        <h2>
-            <?php
-            // Display the archive title dynamically
-            if (is_category()) {
-                single_cat_title('Category: ');
-            } elseif (is_tag()) {
-                single_tag_title('Tag: ');
-            } elseif (is_day()) {
-                echo 'Daily Archives: ' . get_the_date();
-            } elseif (is_month()) {
-                echo 'Monthly Archives: ' . get_the_date('F Y');
-            } elseif (is_year()) {
-                echo 'Yearly Archives: ' . get_the_date('Y');
-            } else {
-                echo 'Archives';
-            }
-            ?>
-        </h2>
-        <hr class="section-divider">
-    </div>
-
-    <div class="archive-posts">
+<main id="main" class="site-main" role="main">
+    <header class="custom-archive-header">
         <?php
-        if (have_posts()) :
-            while (have_posts()) : the_post(); ?>
-                <div class="archive-post">
-                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    <p><?php echo get_the_excerpt(); ?></p>
-                    <a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-                    <hr>
-                </div>
-            <?php endwhile;
-
-            // Pagination
-            the_posts_pagination(array(
-                'prev_text' => __('<i class="fas fa-chevron-left"></i> Previous'),
-                'next_text' => __('Next <i class="fas fa-chevron-right"></i>'),
-            ));
-        else :
-            echo '<p>No posts found.</p>';
-        endif;
+        the_archive_title( '<h1 class="custom-archive-title">', '</h1>' );
         ?>
-    </div>
-</div>
+    </header>
 
-<?php
-get_footer(); // Include the footer.php template
-?>
+    <div class="custom-archive-content">
+        <?php if ( have_posts() ) : ?>
+            <div class="custom-post-grid">
+                <?php while ( have_posts() ) : the_post(); ?>
+                    <article id="post-<?php the_ID(); ?>" <?php post_class('custom-post-item'); ?>>
+                        <?php if ( has_post_thumbnail() ) : ?>
+                            <div class="custom-post-thumbnail">
+                                <?php the_post_thumbnail( 'medium' ); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="custom-post-content">
+                            <h2 class="custom-post-title"><?php the_title(); ?></h2>
+                            <div class="custom-post-meta">
+                                <?php
+                                echo '<span class="custom-post-author">' . get_the_author() . '</span>';
+                                echo '<span class="custom-post-date">' . get_the_date() . '</span>';
+                                ?>
+                            </div>
+                            <div class="custom-post-excerpt">
+                                <?php the_excerpt(); ?>
+                            </div>
+                            <a href="<?php the_permalink(); ?>" class="custom-read-more">Read More</a>
+                        </div>
+                    </article>
+                <?php endwhile; ?>
+            </div>
+
+            <div class="custom-navigation">
+                <?php the_posts_navigation(); ?>
+            </div>
+
+        <?php else : ?>
+            <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+        <?php endif; ?>
+    </div>
+</main>
+
+<?php get_template_part('template-parts/footer'); ?>
