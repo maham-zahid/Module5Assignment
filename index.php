@@ -11,20 +11,19 @@ get_template_part('template-parts/services-highlight');
         </div>
 
         <?php
-        // Set up the query for recent posts
         $args = array(
-            'posts_per_page' => 5, // Number of posts per page
+            'posts_per_page' => 5, 
             'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
         );
         $blog_query = new WP_Query($args);
 
-        // Loop through the posts and display blog content
+    
         if ($blog_query->have_posts()) :
             while ($blog_query->have_posts()) : $blog_query->the_post();
-                $post_date = get_the_date('d M'); // Date format
+                $post_date = get_the_date('d M Y'); 
                 $post_author = get_the_author();
                 $post_comments = get_comments_number();
-                $is_active = is_singular() ? 'active' : ''; // Apply 'active' class if viewing a single post
+                $is_active = is_singular() ? 'active' : ''; 
                 
                 // Retrieve categories
                 $categories = get_the_category();
@@ -34,22 +33,22 @@ get_template_part('template-parts/services-highlight');
                     foreach ($categories as $category) {
                         $category_links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
                     }
-                    $category_list = implode(', ', $category_links); // Create comma-separated category links
+                    $category_list = implode(', ', $category_links); 
                 } else {
-                    $category_list = 'Uncategorized'; // Handle cases with no categories
+                    $category_list = 'Uncategorized'; 
                 }
                 ?>
                 <div class="blog-post <?php echo esc_attr($is_active); ?>">
                     <div class="blog-post-row">
-                        <div class="blog-date">
-                            <?php echo esc_html($post_date); ?>
+                        <div class="blog-post-date">
+                            <a href="<?php echo esc_url(get_permalink()); ?>" class="post-date-link"><?php echo esc_html($post_date); ?></a>
                         </div>
                         <div class="blog-vertical-line"></div> 
-                        <div class="blog-heading">
+                        <div class="blog-post-heading">
                             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </div>
                     </div>
-                    <div class="blog-content">
+                    <div class="blog-post-content">
                         <div class="post-thumbnail">
                             <?php if (has_post_thumbnail()) { ?>
                                 <a href="<?php the_permalink(); ?>">
@@ -57,22 +56,22 @@ get_template_part('template-parts/services-highlight');
                                 </a>
                             <?php } ?>
                         </div>
-                        <div class="blog-meta">
+                        <div class="blog-post-meta">
                             <div class="meta-wrapper">
-                                <!-- Combined meta and comments in one row -->
-                                <div class="post-meta">
-                                    <p>by <span class="author-name"><?php echo esc_html($post_author); ?></span> on <?php echo esc_html($post_date); ?></p>
+                                <div class="post-meta-info">
+                                    <p>by <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>" class="post-author-link"><?php echo esc_html($post_author); ?></a> 
+                                    on <a href="<?php echo esc_url(get_permalink()); ?>" class="post-date-link"><?php echo esc_html($post_date); ?></a></p>
                                     <p>
-                                        <span class="comment-count"><?php echo esc_html($post_comments . ' ' . _n('Comment', 'Comments', $post_comments, 'wp-blog-theme')); ?></span>
+                                        <span class="post-comment-count"><?php echo esc_html($post_comments . ' ' . _n('Comment', 'Comments', $post_comments, 'wp-blog-theme')); ?></span>
                                         <span class="vertical-line">|</span>
-                                        <span class="post-category"><?php echo $category_list; ?></span>
+                                        <span class="post-category-links"><?php echo $category_list; ?></span>
                                     </p>
                                 </div>
                             </div>
-                            <hr class="blog-divider">
-                            <div class="blog-excerpt">
+                            <hr class="blog-post-divider">
+                            <div class="blog-post-excerpt">
                                 <?php echo wp_trim_words(get_the_content(), 40, '...'); ?>
-                                <a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+                                <a href="<?php the_permalink(); ?>" class="read-more-link">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -97,7 +96,7 @@ get_template_part('template-parts/services-highlight');
         </div>
 
         <?php
-        // Reset Post Data
+    
         wp_reset_postdata();
         ?>
     </div>

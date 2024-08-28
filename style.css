@@ -520,7 +520,7 @@ body {
 }
 
 /* Heading Styling */
-.heading-row h2{
+.heading-row h2 {
     margin-bottom: 10px;
     text-align: left;
     font-weight: normal;
@@ -528,7 +528,7 @@ body {
     font-size: 35px;
 }
 
-.blog-post{
+.blog-post {
     margin-bottom: 30px;
 }
 
@@ -544,33 +544,40 @@ body {
 }
 
 /* Date Styling */
-.blog-date {
+.blog-post-date a{
     font-size: 18px; 
     padding-left: 5px;
+    text-decoration: none;
+    color: #ddd;
+}
+
+.blog-vertical-line{
+    width: 1px; 
+    background-color: #fff; 
+    height: 30px; 
+    margin: 0 20px;
 }
 
 /* Vertical Line Styling */
-.blog-vertical-line {
+.blog-post-vertical-line {
     width: 1px; 
     background-color: #fff; 
     height: 30px; 
     margin: 0 20px; 
 }
 
-
 /* Heading Styling */
-.blog-heading {
+.blog-post-heading {
     font-size: 20px;
 }
 
-.blog-heading a {
+.blog-post-heading a {
     color: #fff; 
     text-decoration: none;
 }
 
-
 /* Content Spacing */
-.blog-content {
+.blog-post-content {
     display: flex;
     align-items: flex-start;
     margin-top: 2px;
@@ -578,74 +585,103 @@ body {
     font-weight: normal;
 }
 
-
 /* Blog Meta */
-.blog-meta {
+.blog-post-meta {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 }
 
-.post-meta, .post-info {
+.post-meta-info {
     display: flex;
-    justify-content: space-between;
+    font-size: 14px;
+    justify-content: flex-start;
     align-items: center;
-   
+    margin-top: 5px; /* Add space above post meta line */
 }
 
-.post-meta p, .post-info p {
+.post-meta-info p {
     margin: 0;
+    color: #333;
 }
 
-.post-info {
-    margin-top: 1px;
+.post-meta-info p a {
+    color: #333; /* Color for links */
+    text-decoration: none;
+}
+
+.post-meta-info p a:hover {
+    text-decoration: underline;
+}
+
+/* Added space between date and comments */
+.post-meta-info .post-comment-count {
+    margin-left: 60px; /* Adjust this value for more or less space */
 }
 
 
+/* Post Thumbnail */
 .post-thumbnail img {
-    width: 200px; 
+    width: 180px; 
     height: 150px; 
     margin-right: 20px;
 }
 
-.meta-wrapper{
+/* Meta Wrapper */
+.meta-wrapper {
     margin-top: -15px;
 }
-.blog-meta p {
-    margin: 0;
-   
+
+.post-meta-info .post-author-link {
+    color:#e73e2b;
 }
 
-.author-name {
-    color: #e73e2b; 
+/* Author Name Styling */
+.post-author-link {
+    color: #e73e2b; /* Red color for author name */
 }
 
 /* Comment Count Styling */
-.comment-count {
+.post-comment-count {
     color: #e73e2b;  
     display: inline-block;
 }
 
+.post-category a{
+    text-decoration: none;
+    color: #000;
+    margin-left: 2px;
+}
 
-.blog-divider {
-    margin: 1px 0; 
+.blog-vertical-line {
+    width: 1px; 
+    background-color: #fff; 
+    height: 30px; 
+    margin: 0 10px; /* Adjust spacing for alignment */
+}
+
+
+/* Divider Styling */
+.blog-post-divider {
+    margin: 5px 0; 
     border: none;
     border-top: 1px solid black; 
 }
 
-
-.blog-excerpt {
+/* Blog Excerpt */
+.blog-post-excerpt {
     margin: 5px 0; 
 }
 
-
-.read-more {
+/* Read More Link */
+.read-more-link {
     color: #e73e2b; 
     text-decoration: none;
     display: block;
     margin-top: 10px;
 }
 
-.read-more:hover {
+.read-more-link:hover {
     text-decoration: underline;
 }
 
@@ -683,20 +719,23 @@ body {
 /* Author Name */
 .post-meta .author {
     color: #e73e2b; 
-    margin-left: 7px; 
-    margin-right: 7px; 
+    margin-left: 5px; 
+    margin-right: 5px; 
+    text-decoration: none;
 }
 
 /* Date */
 .post-meta .date {
-    margin-left: 7px; 
+    margin-left: 5px;
+    text-decoration: none; 
+    color: #000;
 }
 
 /* Comments Count */
 .post-meta .comments {
     color: #e73e2b;
-    margin-left: auto; 
-    margin-left: 400px; 
+    margin-left: 300px; 
+    margin-right: 3px;
 }
 
 /* Post Content */
@@ -704,6 +743,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     font-weight: normal; 
+    margin-bottom: 10px;
 }
 /* Tags Section */
 .post-tags {
@@ -967,6 +1007,7 @@ hr.divider-line {
     width: 50px; 
     height: auto; 
     margin-right: 10px; 
+}
 
 /* Style for the post title */
 .wp-block-latest-posts__post-title{
