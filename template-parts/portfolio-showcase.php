@@ -8,7 +8,8 @@ function portfolio_showcase_shortcode() {
        
         <div class="title-section">
             <h2>D'SIGN IS THE SOUL</h2>
-            <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="btn">View All</a>
+            <a href="<?php echo home_url('/portfolio'); ?>" class="btn">View All</a>
+
         </div>
 
         <!-- Divider Line -->
