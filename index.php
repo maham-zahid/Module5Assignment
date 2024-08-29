@@ -11,10 +11,13 @@ get_template_part('template-parts/services-highlight');
         </div>
 
         <?php
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $args = array(
-            'posts_per_page' => 5, 
-            'paged'          => get_query_var('paged') ? get_query_var('paged') : 1,
+            'post_type' => 'post',
+            'posts_per_page' => 5,
+            'paged' => $paged,
         );
+    
         $blog_query = new WP_Query($args);
 
     
@@ -88,7 +91,7 @@ get_template_part('template-parts/services-highlight');
             <?php
             echo paginate_links(array(
                 'total' => $blog_query->max_num_pages,
-                'current' => max(1, get_query_var('paged')),
+                'current' => $paged,
                 'prev_text' => __('<i class="fas fa-chevron-left"></i>'),
                 'next_text' => __('<i class="fas fa-chevron-right"></i>'),
             ));

@@ -695,7 +695,7 @@ body {
 
 /* Single post styles */
 .single-post {
-    margin: 0 20px; 
+    margin: 0 50px; 
 }
 
 
@@ -734,7 +734,7 @@ body {
 /* Comments Count */
 .post-meta .comments {
     color: #e73e2b;
-    margin-left: 300px; 
+    margin-left: 120px; 
     margin-right: 3px;
 }
 
@@ -1138,7 +1138,7 @@ hr.divider-line {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 10px;
 }
 
@@ -1147,8 +1147,8 @@ hr.divider-line {
 }
 
 .portfolio-thumbnail img {
-    width: 100%;
-    height: auto;
+    width: 60px;
+    height: 50px;
     display: block;
 }
 
@@ -1338,3 +1338,26 @@ hr.divider-line {
     font-size: 18px;
     color: #555;
 }
+
+
+/* Unique container class for single post and sidebar layout */
+.single-post-layout {
+    display: flex;
+    gap: 20px; /* Adjust space between post and sidebar as needed */
+}
+
+/* Single post content styling */
+.single-post-content {
+    flex: 1; /* Takes up more space */
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+/* Sidebar styling */
+.sidebar {
+    flex: 1; /* Takes up less space */
+    background-color: #f4f4f4; /* Optional: Add background color */
+    padding: 20px; /* Optional: Add padding */
+}
+
+

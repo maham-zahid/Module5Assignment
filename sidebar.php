@@ -10,4 +10,3 @@ if (is_active_sidebar('sidebar-1')) {
         <?php dynamic_sidebar( 'primary-sidebar' ); ?>
     </aside>
 <?php endif; ?>
-

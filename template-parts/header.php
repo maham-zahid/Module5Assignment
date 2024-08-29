@@ -39,3 +39,11 @@
 
     <?php wp_body_open(); ?>
  <main>
+ 
+ <style type="text/css">
+
+    body {
+        font-family: <?php echo esc_html( get_option( 'theme_font_style', 'Arial' ) ); ?>;
+    }
+</style>
+

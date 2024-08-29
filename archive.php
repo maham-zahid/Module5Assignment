@@ -1,4 +1,7 @@
 <?php
+/**
+ * Template Name:Archive Page
+ */
 get_template_part('template-parts/header');
 ?>
 

@@ -179,5 +179,177 @@ function wp_blog_theme_enqueue_styles() {
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 }
 add_action('wp_enqueue_scripts', 'wp_blog_theme_enqueue_styles');
+
+
+
+function register_theme_options_menu() {
+    add_menu_page(
+        __( 'Theme Options', 'textdomain' ), // Page title
+        __( 'Theme Options', 'textdomain' ), // Menu title
+        'manage_options',                    // Capability
+        'theme-options',                     // Menu slug
+        'display_theme_options_page',        // Callback function
+        '',                                  // Icon URL (optional)
+        61                                   // Position (optional)
+    );
+}
+add_action( 'admin_menu', 'register_theme_options_menu' );
+
+function display_theme_options_page() {
+    ?>
+    <div class="wrap">
+        <h1><?php _e( 'Theme Options', 'textdomain' ); ?></h1>
+        <form method="post" action="options.php">
+            <?php
+            // Output security fields for the registered setting
+            settings_fields( 'theme_options_group' );
+
+            // Output setting sections and their fields
+            do_settings_sections( 'theme-options' );
+
+            // Output save settings button
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+
+
+function register_theme_font_setting() {
+    // Register a new setting for "theme-options" page
+    register_setting( 'theme_options_group', 'theme_font_style' );
+
+    // Add a new section to the "theme-options" page
+    add_settings_section(
+        'theme_font_section',
+        __( 'Theme Font Settings', 'textdomain' ),
+        'theme_font_section_callback',
+        'theme-options'
+    );
+
+    // Add a new field to the "theme_font_section"
+    add_settings_field(
+        'theme_font_style',
+        __( 'Font Style', 'textdomain' ),
+        'theme_font_style_field_callback',
+        'theme-options',
+        'theme_font_section'
+    );
+}
+add_action( 'admin_init', 'register_theme_font_setting' );
+
+function theme_font_section_callback() {
+    echo __( 'Select the font style for your theme.', 'textdomain' );
+}
+
+function theme_font_style_field_callback() {
+    // Get the current font style value
+    $font_style = get_option( 'theme_font_style', 'Arial' );
+    ?>
+    <select name="theme_font_style">
+        <option value="Arial" <?php selected( $font_style, 'Arial' ); ?>>Arial</option>
+        <option value="Verdana" <?php selected( $font_style, 'Verdana' ); ?>>Verdana</option>
+        <option value="Times New Roman" <?php selected( $font_style, 'Times New Roman' ); ?>>Times New Roman</option>
+        <option value="Georgia" <?php selected( $font_style, 'Georgia' ); ?>>Georgia</option>
+        <option value="Courier New" <?php selected( $font_style, 'Courier New' ); ?>>Courier New</option>
+    </select>
+    <?php
+}
+
+// Register the color picker settings and add them to the theme options page
+function register_theme_color_settings() {
+    // Register the header background color setting
+    register_setting( 'theme_options_group', 'header_background_color' );
+    
+    // Register the footer background color setting
+    register_setting( 'theme_options_group', 'footer_background_color' );
+
+    // Add a new section for the header and footer background colors
+    add_settings_section(
+        'theme_color_section',
+        __( 'Header and Footer Background Colors', 'textdomain' ),
+        'theme_color_section_callback',
+        'theme-options'
+    );
+
+    // Add the color picker field for header background color
+    add_settings_field(
+        'header_background_color',
+        __( 'Header Background Color', 'textdomain' ),
+        'header_background_color_field_callback',
+        'theme-options',
+        'theme_color_section'
+    );
+
+    // Add the color picker field for footer background color
+    add_settings_field(
+        'footer_background_color',
+        __( 'Footer Background Color', 'textdomain' ),
+        'footer_background_color_field_callback',
+        'theme-options',
+        'theme_color_section'
+    );
+}
+add_action( 'admin_init', 'register_theme_color_settings' );
+
+// Callback for the theme color section
+function theme_color_section_callback() {
+    echo __( 'Select background colors for the header and footer.', 'textdomain' );
+}
+
+// Callback for the header background color field
+function header_background_color_field_callback() {
+    $header_color = get_option( 'header_background_color', '#ffffff' );
+    ?>
+    <input type="text" name="header_background_color" value="<?php echo esc_attr( $header_color ); ?>" class="wp-color-picker-field" data-default-color="#ffffff">
+    <?php
+}
+
+// Callback for the footer background color field
+function footer_background_color_field_callback() {
+    $footer_color = get_option( 'footer_background_color', '#ffffff' );
+    ?>
+    <input type="text" name="footer_background_color" value="<?php echo esc_attr( $footer_color ); ?>" class="wp-color-picker-field" data-default-color="#ffffff">
+    <?php
+}
+
+// Enqueue the WordPress color picker script and styles
+function enqueue_color_picker( $hook_suffix ) {
+    // Only add the color picker on the theme options page
+    if ( 'toplevel_page_theme-options' !== $hook_suffix ) {
+        return;
+    }
+
+    // Enqueue the color picker style
+    wp_enqueue_style( 'wp-color-picker' );
+
+    // Enqueue the script to initialize the color picker
+    wp_enqueue_script(
+        'theme-options-color-picker',
+        get_template_directory_uri() . '/assets/js/color-picker.js',
+        array( 'wp-color-picker' ),
+        false,
+        true
+    );
+}
+add_action( 'admin_enqueue_scripts', 'enqueue_color_picker' );
+
+// Apply the header and footer background colors from the theme options
+function apply_custom_background_colors() {
+    $header_color = get_option( 'header_background_color', '#ffffff' );
+    $footer_color = get_option( 'footer_background_color', '#ffffff' );
+    echo '<style type="text/css">
+        .site-header {
+            background-color: ' . esc_attr( $header_color ) . ';
+        }
+        .site-footer {
+            background-color: ' . esc_attr( $footer_color ) . ';
+        }
+    </style>';
+}
+add_action( 'wp_head', 'apply_custom_background_colors' );
+
 ?>
 
