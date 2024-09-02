@@ -11,14 +11,15 @@ get_template_part('template-parts/services-highlight');
         </div>
 
         <?php
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $paged = get_query_var('paged') ? get_query_var('paged') : 1;
         $args = array(
             'post_type' => 'post',
             'posts_per_page' => 5,
             'paged' => $paged,
         );
-    
+        
         $blog_query = new WP_Query($args);
+        
 
     
         if ($blog_query->have_posts()) :
@@ -103,8 +104,18 @@ get_template_part('template-parts/services-highlight');
         wp_reset_postdata();
         ?>
     </div>
+    <?php
+// Display the Portfolio Widget
+if (is_active_sidebar('sidebar-1')) {
+    dynamic_sidebar('sidebar-1');
+}
+?>
 
-    <?php get_sidebar(); ?>
+<?php if ( is_active_sidebar( 'primary-sidebar' ) ) : ?>
+    <aside id="secondary" class="widget-area">
+        <?php dynamic_sidebar( 'primary-sidebar' ); ?>
+    </aside>
+<?php endif; ?>
 </div>
 
 <?php get_template_part('template-parts/footer'); ?>

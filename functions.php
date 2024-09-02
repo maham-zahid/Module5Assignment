@@ -86,27 +86,24 @@ add_action('widgets_init', 'register_portfolio_widget');
 class Portfolio_Widget extends WP_Widget {
     public function __construct() {
         parent::__construct(
-            'portfolio_widget', // Base ID
-            'Portfolio Widget', // Name
+            'portfolio_widget', 
+            'Portfolio Widget', 
             array('description' => __('Displays a grid of posts with featured images.')) // Args
         );
     }
 
     public function widget($args, $instance) {
-        // Output the widget content
+
         echo $args['before_widget'];
 
-        // Widget title
         if (!empty($instance['title'])) {
             echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
         }
 
-        // Divider line
         echo '<hr class="portfolio-divider">';
 
-        // Query for latest 6 posts
         $query_args = array(
-            'post_type' => 'post', // Use 'post' for standard posts, replace with 'portfolio' if it's a custom post type
+            'post_type' => 'post', 
             'posts_per_page' => 6
         );
 
@@ -130,7 +127,7 @@ class Portfolio_Widget extends WP_Widget {
                 <?php
             }
 
-            echo '</div>'; // End .portfolio-grid
+            echo '</div>'; 
         } else {
             echo '<p>No posts found.</p>';
         }
@@ -140,7 +137,7 @@ class Portfolio_Widget extends WP_Widget {
     }
 
     public function form($instance) {
-        // Widget admin form
+       
         $title = !empty($instance['title']) ? $instance['title'] : __('Portfolio', 'text_domain');
         ?>
         <p>
@@ -180,17 +177,15 @@ function wp_blog_theme_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'wp_blog_theme_enqueue_styles');
 
-
-
 function register_theme_options_menu() {
     add_menu_page(
-        __( 'Theme Options', 'textdomain' ), // Page title
-        __( 'Theme Options', 'textdomain' ), // Menu title
-        'manage_options',                    // Capability
-        'theme-options',                     // Menu slug
-        'display_theme_options_page',        // Callback function
-        '',                                  // Icon URL (optional)
-        61                                   // Position (optional)
+        __( 'Theme Options', 'textdomain' ), 
+        __( 'Theme Options', 'textdomain' ), 
+        'manage_options',                    
+        'theme-options',                     
+        'display_theme_options_page',       
+        '',                                  
+        61                                 
     );
 }
 add_action( 'admin_menu', 'register_theme_options_menu' );
@@ -201,13 +196,10 @@ function display_theme_options_page() {
         <h1><?php _e( 'Theme Options', 'textdomain' ); ?></h1>
         <form method="post" action="options.php">
             <?php
-            // Output security fields for the registered setting
             settings_fields( 'theme_options_group' );
 
-            // Output setting sections and their fields
             do_settings_sections( 'theme-options' );
 
-            // Output save settings button
             submit_button();
             ?>
         </form>
@@ -215,13 +207,10 @@ function display_theme_options_page() {
     <?php
 }
 
-
-
 function register_theme_font_setting() {
     // Register a new setting for "theme-options" page
     register_setting( 'theme_options_group', 'theme_font_style' );
 
-    // Add a new section to the "theme-options" page
     add_settings_section(
         'theme_font_section',
         __( 'Theme Font Settings', 'textdomain' ),
@@ -229,7 +218,6 @@ function register_theme_font_setting() {
         'theme-options'
     );
 
-    // Add a new field to the "theme_font_section"
     add_settings_field(
         'theme_font_style',
         __( 'Font Style', 'textdomain' ),
@@ -260,13 +248,13 @@ function theme_font_style_field_callback() {
 
 // Register the color picker settings and add them to the theme options page
 function register_theme_color_settings() {
-    // Register the header background color setting
+   
     register_setting( 'theme_options_group', 'header_background_color' );
     
-    // Register the footer background color setting
+    
     register_setting( 'theme_options_group', 'footer_background_color' );
 
-    // Add a new section for the header and footer background colors
+    
     add_settings_section(
         'theme_color_section',
         __( 'Header and Footer Background Colors', 'textdomain' ),
@@ -350,6 +338,38 @@ function apply_custom_background_colors() {
     </style>';
 }
 add_action( 'wp_head', 'apply_custom_background_colors' );
+
+
+function wp_blog_theme_custom_templates($template)
+{
+
+	// Check if it's the single post page
+	if (is_single()) {
+		$new_template = locate_template(array('templates/single.php'));
+		if ($new_template) {
+			return $new_template;
+		}
+	}
+
+	// Check if it's the archive page 
+	if (is_archive()) {
+		$new_template = locate_template(array('templates/archive.php'));
+		if ($new_template) {
+			return $new_template;
+		}
+	}
+
+	
+	if (is_search()) {
+		$new_template = locate_template(array('template-parts/search.php'));
+		if ($new_template) {
+			return $new_template;
+		}
+	}
+
+	return $template;
+}
+add_filter('template_include', 'wp_blog_theme_custom_templates');
 
 ?>
 

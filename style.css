@@ -32,7 +32,6 @@ body {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 10px 50px;
 }
 
 /* Header */
@@ -1343,21 +1342,26 @@ hr.divider-line {
 /* Unique container class for single post and sidebar layout */
 .single-post-layout {
     display: flex;
-    gap: 20px; /* Adjust space between post and sidebar as needed */
+    gap: 20px;
 }
 
 /* Single post content styling */
 .single-post-content {
-    flex: 1; /* Takes up more space */
+    flex: 1; 
     margin-left: 150px;
     margin-top: 50px;
 }
 
 /* Sidebar styling */
 .sidebar {
-    flex: 1; /* Takes up less space */
-    background-color: #f4f4f4; /* Optional: Add background color */
-    padding: 20px; /* Optional: Add padding */
+    flex: 1; 
+    background-color: #f4f4f4; 
+    padding: 20px; 
 }
 
 
+.heading h2{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+}
